@@ -1,10 +1,20 @@
 (function() { 
   window.onload = function() {
-
+    // console.log(Store)
+    Store = []
+    if(Store.length > 0) {
+      kinhdo = Store.kdStore;
+      vido = Store.vdStore;
+      console.log(kinhdo,vido)
+    }
+    else{
+      kinhdo = 9.915305180107284;
+      vido = 105.14689066544706;
+    }
     // Create MapOptions object with required properties
     var options = {
       zoom: 15,
-      center: new google.maps.LatLng(9.915305180107284, 105.14689066544706),
+      center: new google.maps.LatLng(kinhdo, vido),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
@@ -55,36 +65,27 @@
     };
 
     document.getElementById('searchButton').onclick = function() {
-      var searchTerm = document.getElementById('search').value.toLowerCase();
-      console.log("Searching for:", searchTerm); // In ra giá trị tìm kiếm
-      
-      // Tìm cửa hàng
-      var foundStore = arrStore.find(store => store.tenCH.toLowerCase().includes(searchTerm));
-      console.log("Found Store:", foundStore); // In ra cửa hàng tìm thấy
-  
-      if (foundStore) {
-          var location = new google.maps.LatLng(foundStore.vido, foundStore.kinhdo);
-          map.panTo(location);
-          map.setZoom(15);
-          addMarker(location);
-      } else {
-          alert('Cửa hàng không tìm thấy');
+      if(Array.isArray(arrStore) && arrStore.length > 0) {
+        var searchTerm = document.getElementById('search').value.toLowerCase();
+        console.log("Searching for:", searchTerm); // In ra giá trị tìm kiếm
+        
+        // Tìm cửa hàng
+        var foundStore = arrStore.find(store => store.tenCH.toLowerCase().includes(searchTerm));
+        console.log("Found Store:", foundStore); // In ra cửa hàng tìm thấy
+    
+        if (foundStore) {
+            var location = new google.maps.LatLng(foundStore.vido, foundStore.kinhdo);
+            map.panTo(location);
+            addMarker(location);
+        } else {
+            alert('Cửa hàng không tìm thấy');
+        }
       }
-  };
-  
-  
-
-
+      
+    };
 
     // Save location data to database
     document.getElementById('saveLocation').onclick = function() {
-      // var lat = document.getElementById('latitude').value;
-      // var lng = document.getElementById('longitude').value;
-      // var description = document.getElementById('description').value;
-
-      // console.log('Latitude: ' + lat + ', Longitude: ' + lng + ', Description: ' + description);
-
-      // Close the modal after saving
       modal.style.display = "none";
     };
 

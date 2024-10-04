@@ -6,7 +6,7 @@ class SearchControllers {
     //     getStores(req, res)
     // }
 
-    search(req, res) {
+    index(req, res) {
         searchStore(req, res)
     }
 
