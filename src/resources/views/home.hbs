@@ -66,11 +66,41 @@
   </div>
 </div>
 
+<div id="ModalTK" class="modal">
+    <div class="modal-content">
+        <h1>Thống kê</h1>
+        <form action="/statistical" method="post"></form>
+            <div id="content" class="d-flex justify-content-around rounded-2">
+                
+                <input type="date" name="ngaybatdau" id="">
+                <input type="date" name="ngayketthuc" id="">
+                <button type="submit" id="btnthongke">Tìm</button>
+                
+            </div>
+        </form>
+        <div id="result" style="">
+            <table>
+                <th>
+                    <tr>Mã hoá đơn</tr>
+                    <tr>Tên hoá đơn</tr>
+                    <tr>Mặt hàng bán</tr>
+                    <tr>số lượng</tr>
+                    <tr>Thành tiền</tr>
+                </th>
+                <td>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                </td>
+            </table>
+        </div>
+    </div>
+</div>
+
 <style>
 /* General Modal Styles */
-label{
-
-}
 .modal {
     display: none;
     position: fixed;
