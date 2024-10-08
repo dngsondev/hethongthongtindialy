@@ -1,8 +1,8 @@
-const statistical = require('../models/statistical')
+const statisticalCH = require('../models/statistical')
 
 class StatisticalControllers {
     statistical(request, response) {
-        statistical.statistical(request, response)
+        statisticalCH(request, response)
     }
 }
 

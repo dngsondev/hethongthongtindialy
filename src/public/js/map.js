@@ -50,14 +50,16 @@
               Thống kê
             </button>
             <button style="padding: 10px 12px; background-color: blue; color: white; border: none; border-radius: 2px; cursor: pointer;">
-              <a  href="" style="text-decoration: none; color: white;">Chỉnh sửa</a>
+              <a href="" style="text-decoration: none; color: white;">Chỉnh sửa</a>
             </button>
             <button style="padding: 10px 12px; background-color: red; color: white; border: none; border-radius: 2px; cursor: pointer;">
               <a href="" style="text-decoration: none; color: white;">Xoá</a>
             </button>
           </div>
         `;
-    
+
+        document.getElementById('maCHHienTai').value = storeInfo.maCH;
+        
         // Đặt nội dung và mở InfoWindow
         infowindow.setContent(contentString);
         infowindow.open(map, marker);

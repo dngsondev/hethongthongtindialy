@@ -15,9 +15,6 @@
             hinhAnhCH: "{{this.hinhanh}}",
             moTaCH: "{{this.mota}}"
         })
-
-        {{!-- console.log(maCH, tenCH, diaChiCH, hinhAnhCH, moTaCH) --}}
-
     </script>  
   {{/each}}
 {{/if}}
@@ -69,35 +66,40 @@
 <div id="ModalTK" class="modal">
     <div class="modal-content">
         <h1>Thống kê</h1>
-        <form action="/statistical" method="post"></form>
+        <form action="/statistical?maCHHT={{maCHHT}}" method="post">
             <div id="content" class="d-flex justify-content-around rounded-2">
-                
-                <input type="date" name="ngaybatdau" id="">
-                <input type="date" name="ngayketthuc" id="">
+                <input type="text" name="maCHHT" id="maCHHienTai" value="" hidden>
+                <input type="date" name="ngaybatdau" id="ngaybatdau">
+                <input type="date" name="ngayketthuc" id="ngayketthuc">
                 <button type="submit" id="btnthongke">Tìm</button>
-                
             </div>
         </form>
         <div id="result" style="">
             <table>
-                <th>
-                    <tr>Mã hoá đơn</tr>
-                    <tr>Tên hoá đơn</tr>
-                    <tr>Mặt hàng bán</tr>
-                    <tr>số lượng</tr>
-                    <tr>Thành tiền</tr>
-                </th>
-                <td>
-                    <tr></tr>
-                    <tr></tr>
-                    <tr></tr>
-                    <tr></tr>
-                    <tr></tr>
-                </td>
+                <thead>
+                    <tr>
+                        <th>Mã hoá đơn</th>
+                        <th>Tên hoá đơn</th>
+                        <th>Mặt hàng bán</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <!-- Add more rows here if needed -->
+                </tbody>
             </table>
         </div>
     </div>
 </div>
+
 
 <style>
 /* General Modal Styles */
