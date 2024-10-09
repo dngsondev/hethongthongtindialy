@@ -16,7 +16,6 @@
 
     // Lấy modal và nút đóng
     var modal = document.getElementById("locationModal");
-    var modalTK = document.getElementById("ModalTK");
     var span = document.getElementsByClassName("close")[0];
 
     // Hàm thêm marker vào bản đồ
@@ -46,9 +45,7 @@
             </div>
           </div>
           <div class="row" style="display: flex; justify-content: center; gap: 45px; padding-top: 10px;">
-            <button id="thongke" style="padding: 10px 12px; background-color: green; color: white; border: none; border-radius: 2px; cursor: pointer;">
-              Thống kê
-            </button>
+            <a href="/statistical">Thống kê</a>
             <button style="padding: 10px 12px; background-color: blue; color: white; border: none; border-radius: 2px; cursor: pointer;">
               <a href="" style="text-decoration: none; color: white;">Chỉnh sửa</a>
             </button>
@@ -58,8 +55,6 @@
           </div>
         `;
 
-        document.getElementById('maCHHienTai').value = storeInfo.maCH;
-        
         // Đặt nội dung và mở InfoWindow
         infowindow.setContent(contentString);
         infowindow.open(map, marker);
@@ -72,14 +67,16 @@
     
       // Thêm sự kiện 'click' để mở InfoWindow khi người dùng nhấp vào marker
       google.maps.event.addListener(marker, 'click', showInfoWindow);
-
-      // Thêm sự kiện 'click' cho nút Thống kê sau khi InfoWindow được hiển thị
-      google.maps.event.addListenerOnce(infowindow, 'domready', function() {
-        document.getElementById('thongke').onclick = function() {
-          modalTK.style.display = "block";
-        };
-      });
     }
+
+    // document.getElementById('thongke').onclick = function() {
+    //   location.replace('./statistical');
+    // };
+    // document.addEventListener("DOMContentLoaded", function() {
+    //   document.getElementById('#thongke').addEventListener("click", function() {
+    //     location.replace('./statistical');
+    //   })
+    // })
 
     // Thêm sự kiện click vào bản đồ
     google.maps.event.addListener(map, 'click', function(event) {
@@ -105,9 +102,6 @@
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
-      }
-      if (event.target == modalTK) {
-        modalTK.style.display = "none";
       }
     };
 
@@ -164,5 +158,7 @@
     };
 
     console.log(arrStore); // Xem danh sách các cửa hàng
+
+
   };
 })();
